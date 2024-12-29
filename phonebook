@@ -1,0 +1,29 @@
+phonebook={}
+def contact():
+    while True:
+        print("\n 1.Add Contact \n2.View Contact\n 3.Delete Contact \n 4.Exit")
+        choice=input("enter your choice")
+        if choice=="1":
+            name=input("enter your name")
+            number=int(input("enter your number"))
+            phonebook[name]=number
+            print("Added successfully")
+        elif choice=="2":
+            name=input("enter name to search")
+            print(f"{name} {phonebook.get(name,"contact not found")}" )
+        elif choice=="3":
+            name=input("enter name to delete")
+            if name in phonebook:
+                del phonebook[name]
+                print("contact deleted")
+            else:
+                print("contact not found")
+        elif choice=="4":
+            break
+        else:
+            print("invalid choice")
+# contact()
+try:
+    contact()
+except Exception as e:
+    print(e)
